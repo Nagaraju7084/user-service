@@ -29,15 +29,6 @@ public class UserController {
 		return new ResponseEntity<UserDto>(userService.createUser(userDto), HttpStatus.CREATED);
 	}
 	
-	/*
-	 * @PutMapping("/{userId}") public ResponseEntity<UserDto>
-	 * updateUser(@RequestBody UserDto userDto,
-	 * 
-	 * @PathVariable String userId){ return new
-	 * ResponseEntity<UserDto>(userService.updateUser(userDto, userId),
-	 * HttpStatus.OK); }
-	 */
-	
 	@GetMapping("/users/{userId}")
 	public ResponseEntity<UserDto> getUserById(@PathVariable String userId) {
 		return new ResponseEntity<UserDto>(userService.getUserById(userId), HttpStatus.OK);
@@ -48,6 +39,10 @@ public class UserController {
 		return new ResponseEntity<List<UserDto>>(userService.getAllUsers(), HttpStatus.OK);
 	} 
 	
+	@PutMapping("/users/{userId}")
+	public ResponseEntity<UserDto> updateUserById(@RequestBody UserDto userDto, @PathVariable String userId){
+		return new ResponseEntity<UserDto>(userService.updateUser(userDto, userId), HttpStatus.OK);
+	}
 	@DeleteMapping("/users/{userId}")
 	public ResponseEntity<?> deleteUserById(@PathVariable String userId) {
 		userService.deleteUserById(userId);
