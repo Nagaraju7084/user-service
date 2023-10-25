@@ -1,6 +1,7 @@
 user service -> port: 8081
-rating service -> port: 8082
-hotel service -> port: 8083
+hotel service -> port: 8082
+rating service -> port: 8083
+
 
 hotel api gateway -> server.port=8084
 get : http://localhost:8084/api/hotels
